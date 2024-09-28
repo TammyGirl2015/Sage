@@ -21,13 +21,13 @@ class Post(models.Model):
     likes = models.ManyToManyField(
         User, related_name='sagepost_like', blank=True)
 
-class Meta:
+    class Meta:
         ordering = ["-created_on"]
 
-def __str__(self):
+    def __str__(self):
         return self.title
 
-def number_of_likes(self):
+    def number_of_likes(self):
         return self.likes.count()
 
 class Comment(models.Model):
