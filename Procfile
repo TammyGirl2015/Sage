@@ -1,1 +1,1 @@
-web:gunicorn sage.wsgi
+web: gunicorn sage.wsgi
