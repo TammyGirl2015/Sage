@@ -4,13 +4,11 @@ from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
 
-
 class PostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "index.html"
     paginate_by = 6
-
 
 class PostDetail(View):
 
@@ -21,8 +19,6 @@ class PostDetail(View):
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
-
-
 
         return render(
             request,
