@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, CategoryForm
 
 class PostList(generic.ListView):
     model = Post
@@ -77,9 +77,26 @@ class AddCategoryView(View):
     """View for the add category page."""
     def get(self, request, *args, **kwargs):
         """Handle GET requests."""
+        form = CategoryForm()
+        return render(request, 'addcategory.html', {'form': form})
 
-        return render(
-        request,
-        'personnel/add_category.html',
-        {'form': form},
-        )
+from django.views import View
+from django.shortcuts import render, redirect
+from .forms import ReviewForm  # Ensure you import your ReviewForm
+
+class AddReviewView(View):
+    """View for the add review page."""
+    
+    def get(self, request, *args, **kwargs):
+        """Handle GET requests."""
+        form = ReviewForm()
+        return render(request, 'templates/addreview.html', {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        """Handle POST requests."""
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            # Here, you can handle the form data, e.g., save it to the database
+            # For now, just redirect to a success page or the same page
+            return redirect('success_page')  # Replace with your actual success page
+        return render(request, 'templates/addreview.html', {'form': form})

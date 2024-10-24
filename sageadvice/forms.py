@@ -1,4 +1,4 @@
-from .models import Comment
+from .models import Comment, Category
 from django import forms
 
 class CommentForm(forms.ModelForm):
@@ -23,3 +23,8 @@ class CategoryForm(forms.ModelForm):
                 attrs={'class': 'form-check-input'}
             )
         }
+
+class ReviewForm(forms.Form):
+    name = forms.CharField(max_length=100, label='Your Name')
+    email = forms.EmailField(label='Your Email')
+    review = forms.CharField(widget=forms.Textarea, label='Your Review')

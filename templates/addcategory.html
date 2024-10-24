@@ -1,11 +1,8 @@
 {% extends "base.html" %}
 
-{% csrf_token %}
-        {% for field in form %}
-          {% if field.is_hidden %}
-            {{ field }}
-          {% else %}
-            {{ field.label_tag }}
-            {{ field }}
-          {% endif %}
-        {% endfor %}
+<form method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Submit Review</button>
+</form>
+      
