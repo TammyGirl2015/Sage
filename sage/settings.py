@@ -28,13 +28,14 @@ TEMPLATES_DIR =  os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-ALLOWED_HOSTS = ['sage.herokuapp.com', 'localhost', '8000-tammygirl2015-sage-znmr2ztblji.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['https://sage-advice-8dd203911010.herokuapp.com/', 'localhost', '8000-tammygirl2015-sage-znmr2ztblji.ws.codeinstitute-ide.net', '*']
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-tammygirl2015-sage-znmr2ztblji.ws.codeinstitute-ide.net',
+    'https://sage-advice-8dd203911010.herokuapp.com/'
 ]
 
 # Application definition
@@ -121,6 +122,9 @@ print("DATABASE_URL:", os.environ.get("DATABASE_URL"))
 DATABASES = {
      'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
  }
+
+# DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
+
 
 
 # Password validation
