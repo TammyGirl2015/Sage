@@ -49,7 +49,7 @@ CSRF_TRUSTED_ORIGINS = [
 #)
 
 cloudinary.config(
-    secure=True
+    url=os.getenv("CLOUDINARY_URL") 
 )
 
 # Database configuration
