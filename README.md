@@ -6,8 +6,6 @@ Repository: [GitHub Repo](https://github.com/TammyGirl2015/Sage)
 
 The app is developed by [Tamarie Maenzanise](https://github.com/TammyGirl2015).
 
-![Sage](!(<Screenshot2024-10-25at11.37.21>) "Image of the home page of my Sage Advice Blog")
-
 ## About
 
 Sage advice is a blog app that provides advice, unsolicited as it may be, it is much needed in the world we live in. It offers a kind word to the healing soul and words of experience.
