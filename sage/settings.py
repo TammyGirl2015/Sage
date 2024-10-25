@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-baqmhqts-2=5kdsu9mzg4jgsz%s)*+qz=!x#uf3f45764!gu-w')
 
 # Cloudinary configuration
 cloudinary.config(
