@@ -12,42 +12,43 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url
+import cloudinary
 from django.contrib.messages import constants as messages
-if os.path.isfile('env.py'):
-    import env
 from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR =  os.path.join(BASE_DIR, 'templates')
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-load_dotenv()
-
-cloudinary.config( 
-  cloud_name = os.getenv("CLOUDINARY_CLOUD_NAME"), 
-  api_key = os.getenv("CLOUDINARY_API_KEY"), 
-  api_secret = os.getenv("CLOUDINARY_API_SECRET") 
+# Cloudinary configuration
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"), 
+    api_key=os.getenv("CLOUDINARY_API_KEY"), 
+    api_secret=os.getenv("CLOUDINARY_API_SECRET")
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'  # Convert to boolean
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+ALLOWED_HOSTS = [
+    'localhost',
+    '8000-tammygirl2015-sage-znmr2ztblji.ws.codeinstitute-ide.net',
+    'sage-advice-8dd203911010.herokuapp.com',
+    '*'
+]
 
-ALLOWED_HOSTS = ['https://sage-advice-8dd203911010.herokuapp.com/', 'localhost', '8000-tammygirl2015-sage-znmr2ztblji.ws.codeinstitute-ide.net', '*']
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-tammygirl2015-sage-znmr2ztblji.ws.codeinstitute-ide.net',
-    'https://sage-advice-8dd203911010.herokuapp.com/'
+    'https://sage-advice-8dd203911010.herokuapp.com'
 ]
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -73,15 +74,14 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 MESSAGE_TAGS = {
-        messages.DEBUG: 'alert-info',
-        messages.INFO: 'alert-info',
-        messages.SUCCESS: 'alert-success',
-        messages.WARNING: 'alert-warning',
-        messages.ERROR: 'alert-danger',
-    }
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 MIDDLEWARE = [
@@ -115,27 +115,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sage.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
+# Database configuration
 print("DATABASE_URL:", os.environ.get("DATABASE_URL"))
 
+# Database settings
 DATABASES = {
-     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
- }
-
-# DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
+    'default': dj_database_url.config(default=os.environ.get("DATABASE_URL"))
+}
 
 # Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -152,21 +140,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
@@ -176,6 +156,4 @@ MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
