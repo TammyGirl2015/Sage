@@ -72,3 +72,8 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+class AddCategoryView(View):
+    """View for the add category page."""
+    def get(self, request, *args, **kwargs):
+        """Handle GET requests."""
