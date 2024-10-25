@@ -15,6 +15,7 @@ import dj_database_url
 from django.contrib.messages import constants as messages
 if os.path.isfile('env.py'):
     import env
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,6 +26,14 @@ TEMPLATES_DIR =  os.path.join(BASE_DIR, 'templates')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
+
+load_dotenv()
+
+cloudinary.config( 
+  cloud_name = os.getenv("CLOUDINARY_CLOUD_NAME"), 
+  api_key = os.getenv("CLOUDINARY_API_KEY"), 
+  api_secret = os.getenv("CLOUDINARY_API_SECRET") 
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
