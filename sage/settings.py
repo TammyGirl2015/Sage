@@ -115,12 +115,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sage.wsgi.application'
 
-# Database configuration
+import os
+from dj_database_url import config
+
+# Print the DATABASE_URL for debugging
 print("DATABASE_URL:", os.environ.get("DATABASE_URL"))
 
-# Database settings
+# Configure the database settings
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get("DATABASE_URL"))
+    'default': config(
+        default=os.environ.get("DATABASE_URL"),
+        conn_max_age=600
+    )
 }
 
 # Password validation
