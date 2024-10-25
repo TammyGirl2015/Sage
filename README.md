@@ -24,70 +24,72 @@ The aim of this app is to provide comfort and words of wisdom to those seeking i
 ### Target Audience
 
 This blog can be read by a few groups:
-a Teenagers: This group of people ususally prefer not to turn to their parents for advice (for whatever reason), and wuld rather interact with their peers who will likely not provide wise direction. This is aimed at letting such ones find the advice they need - as though coming from their parents given the soundness of it.
-b Young adults: Young adults are often looking for a friend - not just any - a good one who will stick by them. Unfortunately these are had to come by and this site can be a place they can rely on.
-c Adults: Adults have usually come to their senses about things (hopefully), and they can attest to some of the words of wisdom found on the site. Not only can they benefit from it but they can contirbute by way of commenting.
-d Elderly: These ones are a true osurce of wisdom (can be), and they are key in providing the sound advice and guidance many seek today for one good reason - experience. They do say experience is the best teacher. Their input is most valuable and the site can benefit from their comments and additions by way of review.
+- Teenagers: This group of people ususally prefer not to turn to their parents for advice (for whatever reason), and wuld rather interact with their peers who will likely not provide wise direction. This is aimed at letting such ones find the advice they need - as though coming from their parents given the soundness of it.
+- Young adults: Young adults are often looking for a friend - not just any - a good one who will stick by them. Unfortunately these are had to come by and this site can be a place they can rely on.
+- Adults: Adults have usually come to their senses about things (hopefully), and they can attest to some of the words of wisdom found on the site. Not only can they benefit from it but they can contirbute by way of commenting.
+- Elderly: These ones are a true osurce of wisdom (can be), and they are key in providing the sound advice and guidance many seek today for one good reason - experience. They do say experience is the best teacher. Their input is most valuable and the site can benefit from their comments and additions by way of review.
 
 ### User Stories
 
-#### **First Time Visitor Goals**
-
 | Issue ID    | User Story |
 |-------------|-------------|
-|[#1](https://github.com/IuliiaKonovalova/school_app/issues/1)| As a First Time Visitor, I want to be able to easily understand the main purpose of the app, so that I can learn more about this app. |
+|[#1] View post list (https://github.com/users/TammyGirl2015/projects/5/views/1?pane=issue&itemId=80645726&issue=TammyGirl2015%7CSage%7C1)| As a site user I can view a list of posts so that I can select one to read |
+|[#2] Open a post (https://github.com/users/TammyGirl2015/projects/5/views/1?pane=issue&itemId=80645725&issue=TammyGirl2015%7CSage%7C2)| As a site user I can click on a post so that I can read the full text |
+|[#3] View likes (https://github.com/users/TammyGirl2015/projects/5/views/1?pane=issue&itemId=80645723&issue=TammyGirl2015%7CSage%7C3) | As a Site User/ Admin I can view the likes on each post* so that I can see which one is most popular or has gone viral |
+|[#4] View comments (https://github.com/users/TaAs a Site User/ Admin I can view the comments on a post so that I can read the comments |
+|[#5] Account registration (https://github.com/users/TammyGirl2015/projects/5/views/1?pane=issue&itemId=80645721&issue=TammyGirl2015%7CSage%7C5)| As a site user I can register an account so that I can comment on and like posts |
+|[#6] Comment on a post (https://github.com/users/TammyGirl2015/projects/5/views/1?pane=issue&itemId=80645720&issue=TammyGirl2015%7CSage%7C6)| As a site user I can leave comments on a post so that I can be involved in the conversation |
+|[#7] Like/ Unlike a post (https://github.com/users/TammyGirl2015/projects/5/views/1?pane=issue&itemId=80645719&issue=TammyGirl2015%7CSage%7C7)| As a site user I can like or unlike posts so that I can interact with the content |
+|[#8] Manage posts (https://github.com/users/TammyGirl2015/projects/5/views/1?pane=issue&itemId=80645718&issue=TammyGirl2015%7CSage%7C8)| As a SiteAdmin I can create, read, update and delete posts so that I can manage the blog content that I post |
+|[#9] Create drafts (https://github.com/users/TammyGirl2015/projects/5/views/1?pane=issue&itemId=80645717&issue=TammyGirl2015%7CSage%7C9)| As a Site Admin I can create draft posts so that I can finish writing content later if I need to |
+|[#10] Approve comments (https://github.com/users/TammyGirl2015/projects/5/views/1?pane=issue&itemId=80645716&issue=TammyGirl2015%7CSage%7C10)| As a Site Admin I can approve or disapprove comment so that filter out objectionable comments |
 
 
 ## Technologies used
 
 - ### Languages:
     
-    + [Python 3.8.5](https://www.python.org/downloads/release/python-385/): the primary language used to develop the server-side of the website.
-    + [JS](https://www.javascript.com/): the primary language used to develop interactive components of the website.
-    + [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML): the markup language used to create the website.
-    + [CSS](https://developer.mozilla.org/en-US/docs/Web/css): the styling language used to style the website.
+    + [Python 3.12.6] : the primary language used to develop the server-side of the site.
+    + [JS] : the primary language used to develop the interactive components of the site.
+    + [HTML] : the markup language used in creating the site.
+    + [CSS] : the styling language used to style the website.
 
 - ### Frameworks and libraries:
 
-    + [Django](https://www.djangoproject.com/): python framework used to create all the logic.
-    + [jQuery](https://jquery.com/): was used to control click events and sending AJAX requests.
-    + [jQuery User Interface](https://jqueryui.com/) was used to create interactive elements.
+    + [Django]: python framework used to create all the logic.
+    + [jQuery]: used to control click events.
+    + [jQuery User Interface] : used to create the interactive elements.
 
 - ### Databases:
 
-    + [SQLite](https://www.sqlite.org/): was used as a development database.
-    + [PostgreSQL](https://www.postgresql.org/): the database used to store all the data.
+    + [SQLite] : was used as a development database.
+    + [PostgreSQL] : the database used to store all the data.
 
 - ### Other tools:
 
-    + [Git](https://git-scm.com/): the version control system used to manage the code.
-    + [Pip3](https://pypi.org/project/pip/): the package manager used to install the dependencies.
-    + [Gunicorn](https://gunicorn.org/): the webserver used to run the website.
-    + [Spycopg2](https://www.python.org/dev/peps/pep-0249/): the database driver used to connect to the database.
-    + [Django-allauth](https://django-allauth.readthedocs.io/en/latest/): the authentication library used to create the user accounts.
-    + [Django-crispy-forms](https://django-cryptography.readthedocs.io/en/latest/): was used to control the rendering behavior of Django forms.
-    + [Render](https://render.com/): the cloud platform used to host the website.
-    + [ElephantSQL](https://www.elephantsql.com/): the cloud database used to store all the data.
-    + [GitHub](https://github.com/): used to host the website's source code.
-    + [VSCode](https://code.visualstudio.com/): the IDE used to develop the website.
-    + [Chrome DevTools](https://developer.chrome.com/docs/devtools/open/): was used to debug the website.
-    + [Font Awesome](https://fontawesome.com/): was used to create the icons used in the website.
-    + [Draw.io](https://www.lucidchart.com/) was used to make a flowchart for the README file.
-    + [Coolors](https://coolors.co/202a3c-1c2431-181f2a-0b1523-65e2d9-925cef-6b28e0-ffffff-eeeeee) was used to make a color palette for the website.
-    + [BGJar](https://www.bgjar.com/): was used to make a background images for the website.
+    + [Git] : the version control system used to manage the code.
+    + [Pip3] : the package manager used to install the dependencies.
+    + [Gunicorn] : the webserver used to run the website.
+    + [Spycopg2] : the database driver used to connect to the database.
+    + [Django-allauth] : the authentication library used to create the user accounts.
+    + [Django-crispy-forms] : was used to control the rendering behavior of Django forms.
+    + [Render] : the cloud platform used to host the website.
+    + [ElephantSQL] : the cloud database used to store all the data.
+    + [GitHub] : used to host the website's source code.
+    + [VSCode] : the IDE used to develop the website.
+    + [Chrome DevTools] : was used to debug the website.
+    + [Font Awesome] : was used to create the icons used in the website.
+    + [Draw.io] : was used to make a flowchart for the README file.
     + [W3C Validator](https://validator.w3.org/): was used to validate HTML5 code for the website.
     + [W3C CSS validator](https://jigsaw.w3.org/css-validator/): was used to validate CSS code for the website.
     + [JShint](https://jshint.com/): was used to validate JS code for the website.
     + [PEP8](https://pep8.org/): was used to validate Python code for the website.
-
-
 
 ---
 
 ## FEATURES
 
 Please refer to the [FEATURES.md](FEATURES.md) file for all features-related documentation.
-
 
 
 ---

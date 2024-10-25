@@ -16,7 +16,7 @@ import cloudinary
 from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
+# Load environment variables from .env file at the top
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,14 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-baqmhqts-2=5kdsu9mzg4jgsz%s)*+qz=!x#uf3f45764!gu-w')
-
-# Cloudinary configuration
-cloudinary.config(
-    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"), 
-    api_key=os.getenv("CLOUDINARY_API_KEY"), 
-    api_secret=os.getenv("CLOUDINARY_API_SECRET")
-)
+SECRET_KEY = os.environ.get('SECRET_KEY', 'default-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'  # Convert to boolean
@@ -47,6 +40,25 @@ CSRF_TRUSTED_ORIGINS = [
     'https://8000-tammygirl2015-sage-znmr2ztblji.ws.codeinstitute-ide.net',
     'https://sage-advice-8dd203911010.herokuapp.com'
 ]
+
+# Cloudinary configuration
+# cloudinary.config(
+#    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"), 
+#    api_key=os.getenv("CLOUDINARY_API_KEY"), 
+#    api_secret=os.getenv("CLOUDINARY_API_SECRET")
+#)
+
+cloudinary.config(
+    secure=True
+)
+
+# Database configuration
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.environ.get("DATABASE_URL"),
+        conn_max_age=600
+    )
+}
 
 # Application definition
 INSTALLED_APPS = [
@@ -69,7 +81,6 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
-
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -115,19 +126,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'sage.wsgi.application'
 
-import os
-from dj_database_url import config
-
-# Print the DATABASE_URL for debugging
+# Print the DATABASE_URL for debugging (remove in production)
 print("DATABASE_URL:", os.environ.get("DATABASE_URL"))
-
-# Configure the database settings
-DATABASES = {
-    'default': config(
-        default=os.environ.get("DATABASE_URL"),
-        conn_max_age=600
-    )
-}
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -163,3 +163,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Ensure DATABASES is correctly configured
+if not DATABASES['default']['ENGINE']:
+    print("DATABASES is improperly configured. Please supply the ENGINE value.")
